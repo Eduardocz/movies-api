@@ -24,6 +24,7 @@ function wrapError(err,req,res,next){
 }
 
 function errorHander(err, req, res, next) {
+    console.log("errorHander===>",err)
     const { output: { statusCode, payload } } = err;
 
     res.status(statusCode);

@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const helmet = require('helmet');
 const { config } = require('./config/index');
 const moviesApi = require('./routes/movies.js')
 
@@ -8,7 +8,7 @@ const {logErrors, wrapError, errorHander } = require('./utils/middleware/errorHa
 const notFoundHandler  = require('./utils/middleware/notFoundHandler.js');
 
 app.use(express.json());
-
+app.use(helmet())
 //routes
 moviesApi(app);
 
